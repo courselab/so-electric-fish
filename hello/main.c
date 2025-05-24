@@ -13,7 +13,7 @@
 
 int main(void)   
 {
-  printf ("Hello World");
+  print_cats ();
   return 0;
 }
 

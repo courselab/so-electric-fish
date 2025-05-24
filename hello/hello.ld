@@ -29,6 +29,15 @@ SECTIONS
 	    BYTE(0x55)
             BYTE(0xAA)
         }
+
+         /DISCARD/ :
+        {
+                *(.note*)
+                *(.comment*)
+                *(.eh_frame*)
+                *(.gnu*)
+                *(.debug*)
+        }
 }
 
 STARTUP(crt0.o);
