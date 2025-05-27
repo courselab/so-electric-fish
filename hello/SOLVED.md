@@ -42,7 +42,7 @@ This 16-bit x86 assembly program demonstrates several key concepts through an in
 
 ### Main Program Flow
 #### 1. Initialization
-```
+```nasm
 print_cats:
     mov $start, %bx
     call stringOutput      # Display prompt
@@ -55,7 +55,7 @@ print_cats:
 * Reads user input and stores the number in DX
 
 #### 2. Cat Printing Loop
-```
+```nasm
 while:
     cmp $0x0, %dx         # Check counter
     je end                # Exit if done
@@ -67,7 +67,7 @@ while:
 * Prints one complete cat per iteration
 
 #### 3. Printing a Single Cat
-```
+```nasm
 printCatsString:
     mov $cat1, %bx
     call stringOutput
@@ -84,7 +84,7 @@ printCatsString:
 
 ### Key Subroutines
 #### 1. String Output
-```
+```nasm
 stringOutput:
     push %bx
     push %cx
@@ -103,7 +103,7 @@ clearStringOutput:
 * Uses BIOS interrupt 0x10, function 0x0E (teletype output)
 
 #### 2. Character Input/Conversion
-```
+```nasm
 intInput:
     push %ax
     push %cx
@@ -127,7 +127,7 @@ charToInt:
 * Handles multi-digit numbers by multiplying current total by 10 before adding each new digit
 
 #### 3. Time Display
-```
+```nasm
 print_time:
     mov $0x02, %ah         # Get RTC time function
     int $0x1a              # BIOS time interrupt
@@ -150,7 +150,7 @@ print_time:
 * Prints time in HH:MM:SS format
 
 #### 4. BCD to ASCII Conversion
-```
+```nasm
 print_bcd:
         # Save registers we'll modify (preserve caller's values)
         push %ax
